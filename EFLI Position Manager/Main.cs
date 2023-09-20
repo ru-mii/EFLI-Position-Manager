@@ -38,6 +38,8 @@ namespace EFLI_Position_Manager
 
         private void Main_Load(object sender, EventArgs e)
         {
+            CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
+            CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
             selector.Select();
 
             // fill out keyboard table
