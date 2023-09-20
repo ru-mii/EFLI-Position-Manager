@@ -149,18 +149,6 @@ namespace EFLI_Position_Manager
                 Toolkit.ReadMemoryFloat(aPointer + 0x1D0 + 0x8));
         }
 
-        public bool SetPlayerPosition(INF.Vector3 vector)
-        {
-            byte[] rawInsidePointer = Toolkit.ReadMemoryBytes(playerPointer, 8);
-            IntPtr aPointer = (IntPtr)BitConverter.ToInt64(rawInsidePointer, 0);
-
-            Toolkit.WriteMemory(aPointer + 0x1D0, BitConverter.GetBytes(vector.X));
-            Toolkit.WriteMemory(aPointer + 0x1D0 + 0x4, BitConverter.GetBytes(vector.Y));
-            Toolkit.WriteMemory(aPointer + 0x1D0 + 0x8, BitConverter.GetBytes(vector.Z));
-
-            return true;
-        }
-
         private void button_SavePlayerPosition_Click(object sender, EventArgs e)
         {
             INF.Vector3 temp = GetPlayerPosition();
@@ -174,8 +162,13 @@ namespace EFLI_Position_Manager
         {
             INF.Vector3 vector = new INF.Vector3();
 
-            if (float.TryParse(textBox_PlayerPositionX.Text, out vector.X) && float.TryParse(textBox_PlayerPositionY.Text, out vector.Y)
-            && float.TryParse(textBox_PlayerPositionZ.Text, out vector.Z))
+            string posX = textBox_PlayerPositionX.Text.Replace(",", ".");
+            string posY = textBox_PlayerPositionY.Text.Replace(",", ".");
+            string posZ = textBox_PlayerPositionZ.Text.Replace(",", ".");
+
+            if (float.TryParse(posX, NumberStyles.Float, CultureInfo.InvariantCulture, out vector.X) &&
+            float.TryParse(posY, NumberStyles.Float, CultureInfo.InvariantCulture, out vector.Y) &&
+            float.TryParse(posZ, NumberStyles.Float, CultureInfo.InvariantCulture, out vector.Z))
             {
                 byte[] rawInsidePointer = Toolkit.ReadMemoryBytes(playerPointer, 8);
                 IntPtr aPointer = (IntPtr)BitConverter.ToInt64(rawInsidePointer, 0);
