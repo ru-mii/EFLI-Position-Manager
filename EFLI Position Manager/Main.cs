@@ -189,7 +189,7 @@ namespace EFLI_Position_Manager
 
         private void backgroundWorker_PatchUpdate_DoWork(object sender, DoWorkEventArgs e)
         {
-            
+
         }
     }
 }
