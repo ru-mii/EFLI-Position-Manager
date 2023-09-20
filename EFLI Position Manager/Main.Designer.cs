@@ -29,6 +29,7 @@ namespace EFLI_Position_Manager
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.label_HotkeyLoadPlayerPosition = new System.Windows.Forms.Label();
             this.label_HotkeySavePlayerPosition = new System.Windows.Forms.Label();
             this.button_Hotkeys = new System.Windows.Forms.Button();
@@ -145,6 +146,7 @@ namespace EFLI_Position_Manager
             this.Controls.Add(this.textBox_PlayerPositionY);
             this.Controls.Add(this.textBox_PlayerPositionX);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Main";
             this.Text = "EFLI Position Manager";

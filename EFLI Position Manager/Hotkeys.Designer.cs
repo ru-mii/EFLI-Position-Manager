@@ -29,6 +29,7 @@ namespace EFLI_Position_Manager
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hotkeys));
             this.label5 = new System.Windows.Forms.Label();
             this.textBox_LoadPlayerPosition = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -94,6 +95,7 @@ namespace EFLI_Position_Manager
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox_SavePlayerPosition);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Hotkeys";
             this.Text = "Hotkeys";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Hotkeys_FormClosing);
